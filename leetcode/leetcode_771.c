@@ -21,23 +21,23 @@
 #include <string.h>
 
 int numJewelsInStones(char *jewels, char *stones) {
-  int out = 0;
-  for (int i = 0; i < strlen(stones); i++) {
-    for (int j = 0; j < strlen(jewels); j++) {
-      if (jewels[j] == stones[i]) {
-        out++;
-      }
+    int out = 0;
+    for (int i = 0; i < strlen(stones); i++) {
+        for (int j = 0; j < strlen(jewels); j++) {
+            if (jewels[j] == stones[i]) {
+                out++;
+            }
+        }
     }
-  }
-  return out;
+    return out;
 }
 
 int main() {
-  char jewels_1[50] = "aA";
-  char stones_1[50] = "aAAbbbb";
-  char jewels_2[50] = "z";
-  char stones_2[50] = "ZZ";
+    char jewels_1[50] = "aA";
+    char stones_1[50] = "aAAbbbb";
+    char jewels_2[50] = "z";
+    char stones_2[50] = "ZZ";
 
-  printf("%d %d\n", numJewelsInStones(jewels_1, stones_1),
-         numJewelsInStones(jewels_2, stones_2));
+    printf("%d %d\n", numJewelsInStones(jewels_1, stones_1),
+           numJewelsInStones(jewels_2, stones_2));
 }
