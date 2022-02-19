@@ -20,13 +20,16 @@
 # Input: n = "27346209830709182346"
 # Output: 9
 
+# for eg. in "82734"
+# Sum of these 8 Deci-Binary numbers 
+# {11111, 11111, 10111, 10101, 
+# 10100, 10100, 10100, 10000} = 82734
+# so the min nums of deci-Binary numbers for sum be n 
+# will always be = max digit in the num
 
 class Solution:
     def minPartitions(self, n: str) -> int:
-        for i in range(10):
-            if str(i) in n:
-                out = i
-        return out
+        return max([i for i in range(10) if str(i) in n])
 
 
 testcase = [("32", 3), ("34", 4), ("82734", 8), ("27346209830709182346", 9)]
