@@ -24,38 +24,15 @@ from pprint import PrettyPrinter
 
 pp = PrettyPrinter(compact=True)
 
-def minSumOfDeciBin(num: str) -> int:
-    for i in range(10):
-        if str(i) in num:
-            out = i
-    return out
-
-def sumOfDeciBin(num: str) -> int:
-    deciBin = []
-    num = int(num)
-    i = 0
-    while num > 0:
-        length = len(str(num))
-        partial = "1" * length
-        for j in range(length):
-            if int(partial) <= num:
-                break
-            partial = partial[: length - 1 - j] + "0" + partial[length - 1 - j + 1 :]
-        deciBin.append(int(partial))
-        num = num - deciBin[i]
-        i += 1
-
-    # pp.pprint(deciBin)
-    print(
-        f"\033[0;91mTotal Sum of above \033[0;93m{len(deciBin)}\033[0;91m "
-        + f"deci-binary numbers is \033[0;93m{sum(deciBin)}\033[0m"
-    )
-    return len(deciBin)
+class Solution:
+    def minPartitions(self, n: str) -> int:
+        for i in range(10):
+            if str(i) in n:
+                out = i
+        return out
 
 
 testcase = [("32", 3), ("34", 4), ("82734", 8), ("27346209830709182346", 9)]
 for i, v in enumerate(testcase):
-    print(f"via min func: {minSumOfDeciBin(v[0])}")
-    print(f"\033[0;96m{v}\033[0m")
-    _ = sumOfDeciBin(v[0])
-    print()
+    _ = Solution().minPartitions(v[0])
+    print(f"\033[0mmin no of deci-bin nums: \033[0;93m{_}\033[0m for \033[0;93m{v[0]} ")
