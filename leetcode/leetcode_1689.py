@@ -20,10 +20,6 @@
 # Input: n = "27346209830709182346"
 # Output: 9
 
-from pprint import PrettyPrinter
-
-pp = PrettyPrinter(compact=True)
-
 class Solution:
     def minPartitions(self, n: str) -> int:
         for i in range(10):
