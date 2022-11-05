@@ -1,12 +1,12 @@
 /// Problem Statement:
-/// You are are given the current time R in the HH : MM : 85 forma. You are also
-/// given N more time values in an array P, where every element P[i] is less than of equal to R.
+/// You are are given the current time R in the HH:MM:SS format. You are also
+/// given N more time values in an array P, where every element P[i] is less than or equal to R.
 /// Write a program to calculate the time difference between P[i] and R and print one of the following messages accordingly:
 /// > If the time diffeience is zero, print "now".
 /// > If the time difference is in seconds but less than a minute, print "X seconds ago".
 /// > If the time difference is in minutes but less than an hour, print "X minutes ago". Ignore the seconds pait of the difference.
-/// > If the time difference is in hours. print "X hours ago". Ignore the minutes and seconds part of the difference.
-/// > if the value of X ts 1. print the word second instead of seconds. hour instead of hours and minute instead of minutes.
+/// > If the time difference is in hours, print "X hours ago". Ignore the minutes and seconds part of the difference.
+/// > if the value of X ts 1, print the word 'second' instead of 'seconds', 'hour' instead of 'hours' and 'minute' instead of 'minutes'.
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 struct TimeFormat {
