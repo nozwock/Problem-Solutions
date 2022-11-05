@@ -32,6 +32,7 @@ impl TimeFormat {
         })
     }
     fn subtract(&self, time: TimeFormat) -> TimeFormat {
+        // this will panic! if `time` is larger ---------\
         let mut diff = self.to_seconds() - time.to_seconds();
         let hours = diff / 3600;
         diff %= 3600;
@@ -68,12 +69,12 @@ impl TimeFormat {
 
 fn main() {
     let curr_time = TimeFormat::from_str("23:34:43").unwrap();
-    vec!["05:42:21", "00:00:00", "23:34:43", "23:34:21", "23:12:54"]
-        .into_iter()
-        .map(|s| {
-            curr_time
-                .subtract(TimeFormat::from_str(s).unwrap())
-                .to_msg()
-        })
-        .for_each(|msg| println!("{}", msg));
+    vec![
+        "05:42:21", "00:00:00", "23:34:43", "999:99:9", "23:34:21", "23:12:54",
+    ]
+    .into_iter()
+    .map(|s| TimeFormat::from_str(s).unwrap())
+    // filtering off values larger than curr_time - to not panic
+    .filter(|time| curr_time.to_seconds() >= time.to_seconds())
+    .for_each(|time| println!("{}", curr_time.subtract(time).to_msg()));
 }
